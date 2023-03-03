@@ -32,8 +32,8 @@ function createBoard(cellNumber){
     return fragmentBoard;
     
 }
-let difficolta = document.querySelector('.choose').value;
-console.log(difficolta);
+// let difficolta = document.querySelector('.choose').value;
+// console.log(difficolta);
 
 //numero di celle e posizione nel dom
 function campoMinato(){
@@ -44,17 +44,17 @@ function campoMinato(){
     resetGame();
 
 
-    let cellNumber; // sara definito da una selezione
-    let level = difficolta;
+    let cellNumber= 100; // sara definito da una selezione
+     let level = 1 //difficolta;
     console.log(level)
 
-    if (difficolta === 'medium'){
-        level = 2;
-    }else if (difficolta === 'hard'){
-        level = 3;
-    }else{
-        level = 1;
-    }
+    // if (difficolta === 'medium'){
+    //     level = 2;
+    // }else if (difficolta === 'hard'){
+    //     level = 3;
+    // }else{
+    //     level = 1;
+    // }
 
 
    
