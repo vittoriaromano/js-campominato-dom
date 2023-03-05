@@ -13,3 +13,39 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 3. confrontiamo le due liste
   - i numeri sono uguali si mostra la classe speciale del array casuale
   - se l'utente clicca piu' numeri di quelli presenti nella lista vince
+
+
+
+
+
+  function myCreateElement(htmlElement,className1,htmlValue){
+    const element = document.createElement(htmlElement);
+    element.classList.add(className1);
+    element.innerText = htmlValue;
+
+
+    //al click cambiamo una classe colore e console.log la proprieta html
+    element.addEventListener('click', function(){
+        console.log(htmlValue);
+        element.classList.add('colore');
+
+    })
+    return element;
+}
+
+function myAppendElement(containerElement, htmlElement){
+    containerElement.append(htmlElement);
+}
+
+function play(){
+    const containerBoard = document.querySelector('.board');
+    let cellNumber = 100;
+
+     for(let i = 1; i <= cellNumber; i++){
+        const createdElement = myCreateElement('div', 'celle', i);
+        myAppendElement(containerBoard, createdElement);
+    }
+    console.log('hai cliccato')
+    
+}
+

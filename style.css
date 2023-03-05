@@ -38,8 +38,9 @@ header, footer{
     height: 50px;
 }
 
-.btn{
+#btn{
     padding: 5px 10px;
+    width: 50px;
 }
 
 /* main */
@@ -60,31 +61,42 @@ main{
     background-color: aliceblue;
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
+    align-items: flex-start;
     background-color:#7fffd4;
 
 }
 
-.cell-10{
+.celle{
     border: 1px solid black;
     width: calc(100% / 10);
-    height:calc(100% / 10); 
+    height:calc(100% / 10);
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
-.cell-9{
+.medium{
     border: 1px solid black;
-    width: calc(100% / 9);
-    height:calc(100% / 9) ;
+    width: calc(100% / 8);
+    height:calc(100% / 10) ;
 
 }
 
-.cell-7{
+.small{
     border: 1px solid black;
-    width: calc(100% / 7);
-    height:calc(100% / 7);
-    
+    width: calc(100% / 5);
+    height:calc(100% / 10);
+
 }
+
+
+.colore3{
+    background-color: red;
+}
+
+p{
+    margin-left: 25%;
+    display: inline;
+}
+/* fine main */

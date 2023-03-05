@@ -5,16 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>campominato-dom</title>
+    <title>Griglia Campo Minato</title>
 </head>
 <body>
     <!-- header -->
     <header>
         <div class="cont-header">
             <div class="flex">
-                
-                <h1>ampominato-dom</h1>
-                
+                <img src="img/logo-boolean.png" alt="logo">
+                <h1>Campo Minato</h1>
             </div>
             <div>
                 <!-- <label>Diffiocolta':</label>
@@ -23,8 +22,7 @@
                     <option value="medium">medium</option>
                     <option value="hard">hard</option>
                 </select> -->
-                <button class="btn">Play</button>
-                <button id="reset">reset</button>
+                <button id="btn" onclick="btn-play()">Play</button>
             </div>
         </div>
     </header>
@@ -41,6 +39,7 @@
         <span>Made with</span>
         <span>&hearts; by</span>
         <span><a href="https://boolean.careers/">Boolean</a></span>
+        <p id="punto">Il tuo punteggio:</p>
     </footer>
     <!-- fine footer -->
     

@@ -3,100 +3,86 @@
 //FUNZIONI
 
 
-function resetGame(){
-    console.log('resetGame')
-    const boardContainer = document.querySelector('.board');
-    boardContainer.innerHTML='';
-}
-
-function createBoard(cellNumber){
-
-    let fragmentBoard = document.createDocumentFragment();
-
-    for(let i = 1; i <= cellNumber; i++){
-        //console.log(i);
-
-        //crea cella
-        const element = document.createElement('div');
-        element.classList.add('cell');
-        element.classList.add(`cell-${Math.sqrt(cellNumber)}`)
-
-        element.addEventListener('click', function(){
-            console.log(i);
-            element.classList.add('colore');
-        })
-
-        element.innerText = i;
-        fragmentBoard.append(element);
-    }
-    return fragmentBoard;
-    
-}
-// let difficolta = document.querySelector('.choose').value;
-// console.log(difficolta);
-
-//numero di celle e posizione nel dom
-function campoMinato(){
-
-    console.log('inizia il gioco');
-    
-    const boardContainer = document.querySelector('.board');
-    resetGame();
+function myCreateElement(htmlElement,className1,htmlValue){
+    const element = document.createElement(htmlElement);
+    element.classList.add(className1);
+    element.innerText = htmlValue;
 
 
-    let cellNumber= 100; // sara definito da una selezione
-     let level = 1 //difficolta;
-    console.log(level)
-
-    // if (difficolta === 'medium'){
-    //     level = 2;
-    // }else if (difficolta === 'hard'){
-    //     level = 3;
-    // }else{
-    //     level = 1;
-    // }
-
-
-   
-    
-    switch(level){
+    //al click cambiamo una classe colore e console.log la proprieta html
+    element.addEventListener('click', function(){
+        console.log(htmlValue);
+        element.classList.add('colore');
+        //Arrey numeri buoni
+        let myNumberG = []
+        myNumberG.push(htmlValue)
+        console.log(myNumberG);
+        //arrey numeri bombe
+        const myNumber = myNumberB.filter((data) => myNumberG.includes(data));
+        console.log('la somma' +myNumber)
         
-        case 2:
-            cellNumber = 81;
-            break;
-        case 3:
-            cellNumber = 49;
-            break;
-        case 1:
-        default :
-            cellNumber = 100;
-    }
 
-    console.log(cellNumber)
-    console.log(Math.sqrt(cellNumber));
-
-
-
+        const punteggio = document.getElementById('punto')
+        if(myNumber > 0){
+            element.classList.add('colore3');
+            console.log('hai perso')
+            punteggio.innerText = 'Mi spiace hai perso';
+            //myCreateElement.removeEventListner ('click',element);
+        } else{
+            // const punti = document.getElementById('pun').innerHTML;
+            // for(i=0; i <= 84; i++){
+            // }
+            console.log('continua')
+             punteggio.innerText += myNumberG.length;
+}
+        
+        
+    })
     
-   const fragmentBoard = createBoard(cellNumber);
-   console.log(fragmentBoard);
-    //append fragment a boardContainer
-    boardContainer.append(fragmentBoard);
-} 
+         return element;  
+    }
+    
+
+
+function myAppendElement(containerElement, htmlElement){
+    containerElement.append(htmlElement);
+}
+
+function play(){
+    const containerBoard = document.querySelector('.board');
+    let cellNumber = 100;
+
+     for(let i = 1; i <= cellNumber; i++){
+        const createdElement = myCreateElement('div', 'celle', i);
+        myAppendElement(containerBoard, createdElement);
+    }
+}
+
+
+//ARRAY DI NUMERI RANDOM
+// function  myNumberB (){
+//     const rands = []
+//     while(rands.length < 16 ){
+//         const r = Math.floor(Math.random()* 100 + 1);
+//         if (rands.indexOf(r) === -1){
+//             rands.push(r);
+//         }
+//     }
+//     return rands
+// }
+// myNumberB()
+
+// function getRndomNumber (){
+//     let randomnumber =  Math.floor(Math.random() * 1) + 1
+//     console.log('randomnumber ' + randomnumber)
+// }
 
 
 
-//  MAIN
+let myNumberB =[1,3,6,7,8,4,9,10,25,30,58,55,99,86,28,16] //TO DO CREA ARRAY RANDOMICO
+        console.log(myNumberB)
 
-//bottone
-const btn = document.querySelector('.btn');
-const restButton = document.getElementById('reset');
+// let myNumberG = []
 
-btn.addEventListener('click', campoMinato ); //non aggiungere mai le parentesi
-restButton.addEventListener('click', resetGame);
 
-  
-  
-
-//logicaaaaaaa
-
+let myNumber =[]
